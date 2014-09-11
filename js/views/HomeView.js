@@ -6,18 +6,18 @@ var HomeView = function(store) {
         this.el.on('keyup', '.search-key', this.findByName);
     };
 
-    this.render: function() {
+    this.render = function() {
         this.el.html(HomeView.template());
         return this;
-    },
+    };
 
 
-    findByName: function() {
+    this.findByName = function() {
         console.log('findByName');
         store.findByName($('.search-key').val(), function(employees) {
             $('.employee-list').html(HomeView.liTemplate(employees));
         });
-    },
+    };
 
     this.initialize();
 
